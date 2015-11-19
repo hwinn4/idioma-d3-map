@@ -14,7 +14,7 @@ var svg = d3.select("#map").append("svg")
 
 // callback
 // nyb is the entire json collection
-  d3.json('assets/us.json', function(error, nyb) {
+  d3.json('assets/nycneighborhoods.geojson', function(error, nyb) {
 
     console.log(nyb)
 
@@ -41,7 +41,7 @@ var svg = d3.select("#map").append("svg")
     g.append("g")
       .attr("id", "nyc")
       .selectAll(".row") // select all rows in feature collection
-      .data(nyb.objects.states) // bind data to each row?
+      .data(nyb.features) // bind data to each row?
       .enter().append("path") // create path element for each feature
       .attr("d", path) // "d" = path
       .on('click', function(){
@@ -79,7 +79,7 @@ function changeColor(el){
   var name = $(el).text();
   var string = "path[id='" + name + "']";
   var $path = $(string);
-  $path.css("fill","cyan");
+  $path.css("fill","green");
   $('#neighborhood_details').hide();
   showData(name);
 }
