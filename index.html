@@ -1,0 +1,131 @@
+<!-- NOTE: To view the map, open the file with http-server -->
+<!--NOTE: This branch draws on a geojson file that includes neighborhood names-->
+<!-- geojson source: http://catalog.civicdashboards.com/dataset/eea7c03e-9917-40b0-bba5-82e8e37d6739/resource/91778048-3c58-449c-a3f9-365ed203e914/download/06463a12c2104adf86335df0170c25e3pediacitiesnycneighborhoods.geojson--> 
+
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+
+<style>
+/*#neighborhood {
+  stroke: grey;
+  stroke-width: 2px;
+  fill: gray;
+}*/
+
+path:hover {
+  fill:red;  
+}
+
+.margin{
+    margin: 50px;
+}
+/*#container{
+  width: 1000px;
+}*/
+
+.neighborhood_info{
+  width: 200px;
+  margin-left: 100px;
+  float: left;
+}
+
+#map{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1100px;
+    /*border: 3px solid #73AD21;*/
+}
+
+svg{
+  margin-top: 0px;
+  width: 1000px;
+  float: left;
+  /*margin-left: 300px;*/
+  z-index: -1;
+}
+
+</style>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="app.js"></script>
+</head>
+
+<body>
+  
+  <div id="info">
+      <div id="neighborhood_details" class="neighborhood_info">
+        <h2 id="name">Click on a neighborhood for details</h2>
+        <div id="featured_neighborhoods">
+            <h3>Featured Neighborhoods</h3>
+            <ul id="neighborhoods_list">
+              <li class="n_name">Upper West Side</li>
+              <li class="n_name">Clinton Hill</li>
+            </ul>
+        </div>
+      </div>
+  </div>
+  <div id="map"></div>
+ 
+
+<script>
+
+// set width and height vars
+var width = 1000,
+   height = 1000;
+
+// creates the root svg element
+// (basically the canvas)
+var svg = d3.select("#map").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+// callback
+// nyb is the entire json collection
+  d3.json("nycneighborhoods.geojson", function(error, nyb) {
+
+    console.log(nyb)
+
+    // projects spherical coordinate to the Cartesian plane
+    var projection = d3.geo.mercator()
+            .center([-73.94, 40.70])
+            .scale(90000)
+            .translate([(width) / 2, (height)/2]);
+
+    // formats the projects for SVG 
+    var path = d3.geo.path()
+        .projection(projection);
+
+    // "g" is a container el for grouping
+    // related graphics elements
+    // Grouped objects can be transformed together
+    // like a single shape
+    // THIS LINE: appends a g tag to the 
+    // root svg el
+    var g = svg.append("g");
+
+    // appends another g tag
+    // to the previous one
+    g.append("g")
+      .attr("id", "nyc")
+      .selectAll(".row") // select all rows in feature collection
+      .data(nyb.features) // bind data to each row?
+      .enter().append("path") // create path element for each feature
+      .attr("id", function(d){ return d.properties.neighborhood; }) // assign each path el an id
+      .attr("class", function(d){ return d.properties.borough + " neighborhood"; }) // class = neigh and borough
+      .text(function(d){
+        return d.properties.neighborhood;
+      })
+      .attr("d", path) // "d" = path
+      .on('click', function(){
+        // What is the default?
+        d3.event.preventDefault();
+        var el = $(this);
+        changeColor(el);
+        }); 
+  });
+
+</script>
+</body>
+</html>
