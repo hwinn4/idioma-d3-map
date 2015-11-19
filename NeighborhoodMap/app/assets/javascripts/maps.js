@@ -14,7 +14,7 @@ var svg = d3.select("#map").append("svg")
 
 // callback
 // nyb is the entire json collection
-  d3.json('http://catalog.civicdashboards.com/dataset/eea7c03e-9917-40b0-bba5-82e8e37d6739/resource/91778048-3c58-449c-a3f9-365ed203e914/download/06463a12c2104adf86335df0170c25e3pediacitiesnycneighborhoods.geojson', function(error, nyb) {
+  d3.json('assets/us.json', function(error, nyb) {
 
     console.log(nyb)
 
@@ -41,13 +41,8 @@ var svg = d3.select("#map").append("svg")
     g.append("g")
       .attr("id", "nyc")
       .selectAll(".row") // select all rows in feature collection
-      .data(nyb.features) // bind data to each row?
+      .data(nyb.arcs) // bind data to each row?
       .enter().append("path") // create path element for each feature
-      .attr("id", function(d){ return d.properties.neighborhood; }) // assign each path el an id
-      .attr("class", function(d){ return d.properties.borough + " neighborhood"; }) // class = neigh and borough
-      .text(function(d){
-        return d.properties.neighborhood;
-      })
       .attr("d", path) // "d" = path
       .on('click', function(){
         // What is the default?
@@ -84,10 +79,11 @@ function changeColor(el){
   var name = $(el).text();
   var string = "path[id='" + name + "']";
   var $path = $(string);
-  $path.css("fill","blue");
+  $path.css("fill","cyan");
   $('#neighborhood_details').hide();
   showData(name);
 }
+
 function showData(name){
     var url = "https://data.cityofnewyork.us/resource/w5g7-dwbx.json?geographic_area_neighborhood_tabulation_area_nta_name=" + name;
     $.ajax({
