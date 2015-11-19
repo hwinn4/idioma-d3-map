@@ -1,0 +1,10 @@
+  .states {
+        stroke: #000;
+        fill-opacity: .7;
+    }
+
+    .symbol {
+        fill: steelblue;
+        fill-opacity: .8;
+        stroke: #fff;
+    }
