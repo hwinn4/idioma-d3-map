@@ -41,7 +41,7 @@ var svg = d3.select("#map").append("svg")
     g.append("g")
       .attr("id", "nyc")
       .selectAll(".row") // select all rows in feature collection
-      .data(nyb.arcs) // bind data to each row?
+      .data(nyb.objects.states) // bind data to each row?
       .enter().append("path") // create path element for each feature
       .attr("d", path) // "d" = path
       .on('click', function(){
