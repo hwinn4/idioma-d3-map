@@ -50,24 +50,24 @@ $(function(){
       .attr("class", "states");
 
     // add state names
-     g.append("g")
-      .attr("class", "states-names")
-      .selectAll("text")
-      .data(data)
-      .enter()
-      .append("svg:text")
-      .text(function(d){
-        // debugger;
-        return names[d.id];
-      })
-      .attr("x", function(d){
-          return path.centroid(d)[0];
-      })
-      .attr("y", function(d){
-          return  path.centroid(d)[1];
-      })
-      .attr("text-anchor","middle")
-      .attr('fill', 'white');
+     // g.append("g")
+     //  .attr("class", "states-names")
+     //  .selectAll("text")
+     //  .data(data)
+     //  .enter()
+     //  .append("svg:text")
+      // .text(function(d){
+      //   // debugger;
+      //   return names[d.id];
+      // })
+      // .attr("x", function(d){
+      //     return path.centroid(d)[0];
+      // })
+      // .attr("y", function(d){
+      //     return  path.centroid(d)[1];
+      // })
+      // .attr("text-anchor","middle")
+      // .attr('fill', 'white');
          })
      })
 
@@ -75,4 +75,15 @@ $(function(){
 });
 
 // END MAP
+
+// LISTENERS
+
+$(function(){
+  $('.state_name').click(function(){
+    
+    var stateId = $(this).text();
+    var selector = "#" + stateId
+    $(selector).css("fill", "cyan");
+  });
+});
 
