@@ -13,9 +13,11 @@ $(function(){
 
     var g = svg.append("g");
 
+    
+
     // path data
     d3.json("assets/us.json", function(unitedState) {
-      debugger;
+      var num = 0;
       var data = topojson.feature(unitedState, unitedState.objects.states).features;
       neighbors = topojson.neighbors(unitedState.objects.states.geometries);
       // our names
@@ -23,6 +25,7 @@ $(function(){
         // create hash of the names and ids
         var names = {};
         tsv.forEach(function(d,i){
+          // uses the names hash from the tsv file
           names[d.id] = d.name;
         });
     
@@ -34,6 +37,13 @@ $(function(){
       .data(data)
       .enter()
       .append("path")
+      .attr("id", (function(d){
+        // d is the json file
+        for (var i = 0; i < 53; i++){
+          return names[d.id];
+        }
+        
+      }))
       .attr("d", path)
       .style("fill", function(d, i) { return color(d.color = d3.max(neighbors[i], function(n) { return data[n].color; }) + 1 | 0); })
       .attr("stroke", "white")
@@ -47,6 +57,7 @@ $(function(){
       .enter()
       .append("svg:text")
       .text(function(d){
+        // debugger;
         return names[d.id];
       })
       .attr("x", function(d){
