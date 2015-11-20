@@ -1,76 +1,59 @@
 $(function(){
-console.log("Usa");
-    var width = 960,
-            height = 500;
+    
+     var width = 960,
+        height = 500;
 
-    var radius = d3.scale.sqrt()
-            .domain([0, 1e6])
-            .range([0, 10]);
-
-    var path = d3.geo.path();
-
-    var color = d3.scale.category20();
-    var svg = d3.select("#usaMap").append("svg")
+    var svg = d3.select("body").append("svg")
             .attr("width", width)
             .attr("height", height);
 
+    var path = d3.geo.path();
 
-    queue()
-            .defer(d3.json, "assets/us.json")
-            .defer(d3.json, "assets/us-centroids.json")
-            .defer(d3.json, "assets/state-languages.json")
-            .await(ready);
+    var g = svg.append("g");
 
-    function ready(error, us, centroid, languages) {
-        var countries = topojson.feature(us, us.objects.states).features,
-                neighbors = topojson.neighbors(us.objects.states.geometries);
-
-        svg.selectAll("states")
-                .data(countries)
-                .enter().insert("path", ".graticule")
-                .attr("class", "states")
-                .attr("d", path)
-                .style("fill", function(d, i) { return color(d.color = d3.max(neighbors[i], function(n) { return countries[n].color; }) + 1 | 0); })
-                .on('mouseover', function(d, i) {
-
-                var currentState = this;
-                d3.select(this).style('fill-opacity', 1);
-                })
-                .on('mouseout', function(d, i) {
-
-                    d3.selectAll('path')
-                            .style({
-                                'fill-opacity':.7
-                            });
-                });
-
-
-
-svg.selectAll("path")
-    .data(languages)
-    .enter()
-    .append("svg:text")
-    .text(function(d){
-        return d.State;
-    })
-    .attr("x", function(d){
-        return d.Coordinates[0];
-    })
-    .attr("y", function(d){
-        return d.Coordinates[1];
-    })
-    .attr("text-anchor", "middle");
-    
-        svg.selectAll("text")
-                .data(centroid.properties)
-                .enter().append("path")
-                .attr("class", function(d){
-                    return d.language;
-            })
-                .attr("d", path.pointRadius(function(d) { return radius(d.properties.population); }));
-
+    // path data
+    d3.json("assets/us.json", function(unitedState) {
+      var data = topojson.feature(unitedState, unitedState.objects.states).features;
+      // our names
+      d3.tsv("assets/us-state-names.tsv", function(tsv){
+        // extract just the names and Ids
+        var names = {};
+        tsv.forEach(function(d,i){
+          names[d.id] = d.name;
+        });
+   
     
 
-  }
 
-})
+    // build paths
+    g.append("g")
+      .attr("class", "states-bundle")
+      .selectAll("path")
+      .data(data)
+      .enter()
+      .append("path")
+      .attr("d", path)
+      .attr("stroke", "white")
+      .attr("class", "states");
+
+    // add state names
+     g.append("g")
+      .attr("class", "states-names")
+      .selectAll("text")
+      .data(data)
+      .enter()
+      .append("svg:text")
+      .text(function(d){
+        return names[d.id];
+      })
+      .attr("x", function(d){
+          return path.centroid(d)[0];
+      })
+      .attr("y", function(d){
+          return  path.centroid(d)[1];
+      })
+      .attr("text-anchor","middle")
+      .attr('fill', 'white');
+         })
+     })  
+});
