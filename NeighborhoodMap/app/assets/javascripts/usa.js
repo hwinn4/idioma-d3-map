@@ -47,7 +47,10 @@ $(function(){
       .attr("d", path)
       .style("fill", function(d, i) { return color(d.color = d3.max(neighbors[i], function(n) { return data[n].color; }) + 1 | 0); })
       .attr("stroke", "white")
-      .attr("class", "states");
+      .attr("class", "states")
+      .on('click', function(){
+        $('.state_name').text("Hello");
+        }); 
 
     // add state names
      // g.append("g")
