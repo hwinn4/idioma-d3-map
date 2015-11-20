@@ -15,6 +15,7 @@ $(function(){
 
     // path data
     d3.json("assets/us.json", function(unitedState) {
+      debugger;
       var data = topojson.feature(unitedState, unitedState.objects.states).features;
       neighbors = topojson.neighbors(unitedState.objects.states.geometries);
       // our names
