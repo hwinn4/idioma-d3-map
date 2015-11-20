@@ -18,9 +18,10 @@ console.log("Usa");
     queue()
             .defer(d3.json, "assets/us.json")
             .defer(d3.json, "assets/us-centroids.json")
+            .defer(d3.json, "assets/state-languages.json")
             .await(ready);
 
-    function ready(error, us, centroid) {
+    function ready(error, us, centroid, languages) {
         var countries = topojson.feature(us, us.objects.states).features,
                 neighbors = topojson.neighbors(us.objects.states.geometries);
 
@@ -43,23 +44,33 @@ console.log("Usa");
                             });
                 });
 
-svg.selectAll(".symbol")
-           .data(centroid.features.sort(function(a, b) { return b.properties.population - a.properties.population; }))
+
+
+svg.selectAll("path")
+    .data(languages)
+    .enter()
+    .append("svg:text")
+    .text(function(d){
+        return d.State;
+    })
+    .attr("x", function(d){
+        return d.Coordinates[0];
+    })
+    .attr("y", function(d){
+        return d.Coordinates[1];
+    })
+    .attr("text-anchor", "middle");
+    
+        svg.selectAll("text")
+                .data(centroid.properties)
                 .enter().append("path")
-                .attr("class", "symbol")
-                .attr("d", path.pointRadius(function(d) { return radius(d.properties.population); 
+                .attr("class", function(d){
+                    return d.language;
             })
-
-        )
-            .attr("id", function(d){
-                return d.properties.name;
-            });
-
+                .attr("d", path.pointRadius(function(d) { return radius(d.properties.population); }));
 
     
 
-
-
-    }
+  }
 
 })
