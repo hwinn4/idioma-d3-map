@@ -9,6 +9,14 @@
         stroke: #fff;
     }
 
+    #usaMap {
+      position: absolute;
+    }
+
+    .state_languages {
+      position: absolute;
+    }
+
    /* text {
       display: block;
     }
@@ -17,5 +25,3 @@
     text:hover {
       font-size: "20px";
     }*/
-
-    

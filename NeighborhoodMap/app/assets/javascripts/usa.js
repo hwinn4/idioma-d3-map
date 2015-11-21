@@ -50,6 +50,8 @@ $(function(){
       .attr("class", "states")
       .on('click', function(){
         $('.state_name').text(this.id);
+        stateInfo(this.id);
+        $(this).css("fill", "cyan");
         });
 
     // add state names
@@ -83,9 +85,19 @@ $(function(){
 
 $(function(){
   $('.state_name').click(function(){
-
     var stateId = $(this).text();
     var selector = "#" + stateId
     $(selector).css("fill", "cyan");
   });
+
 });
+
+function stateInfo(stateName) {
+    $.getJSON('assets/sample-data.json', function(data) {
+      var items = "";
+      $.each(data, function(key, val) {
+        items += "<li id='" + key + "'>" + key + ": " + val + "</li>";
+        });
+      $('.state_languages').append(items);
+    });
+  }
