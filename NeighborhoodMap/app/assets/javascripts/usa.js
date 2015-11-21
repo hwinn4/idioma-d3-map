@@ -93,7 +93,7 @@ $(function(){
 });
 
 function stateInfo(stateName) {
-    $.getJSON('assets/sample-data.json', function(data) {
+    $.getJSON('assets/json/sample-data.json', function(data) {
       var items = "";
       $.each(data, function(key, val) {
         items += "<li id='" + key + "'>" + key + ": " + val + "</li>";

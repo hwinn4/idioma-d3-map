@@ -1,10 +1,12 @@
 # == Schema Information
 #
-# Table name: maps
+# Table name: languages
 #
-#  id         :integer          not null, primary key
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id           :integer          not null, primary key
+#  name         :string
+#  num_speakers :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
