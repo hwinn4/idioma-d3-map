@@ -15,4 +15,10 @@ class StateLanguage < ActiveRecord::Base
   belongs_to :state
   belongs_to :language
 
+  def initialize(state_id, language_id, num_speakers)
+    @state_id = state_id
+    @language_id = language_id
+    @num_speakers = num_speakers
+  end
+
 end

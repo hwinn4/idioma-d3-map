@@ -7,3 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
+Language.create("Spanish")
+State.create("Texas", 48)
+State_Language.create()

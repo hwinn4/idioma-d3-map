@@ -13,8 +13,7 @@ class Language < ActiveRecord::Base
   has_many :state_languages
   has_many :states, through: :state_languages
 
-  def initialize(name, num_speakers)
+  def initialize(name)
     @name = name
-    @num_speakers = num_speakers
   end
 end
