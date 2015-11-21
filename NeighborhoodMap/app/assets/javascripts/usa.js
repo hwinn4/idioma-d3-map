@@ -1,5 +1,5 @@
 $(function(){
-    
+
      var width = 960,
         height = 500;
 
@@ -13,7 +13,7 @@ $(function(){
 
     var g = svg.append("g");
 
-    
+
 
     // path data
     d3.json("assets/us.json", function(unitedState) {
@@ -28,8 +28,8 @@ $(function(){
           // uses the names hash from the tsv file
           names[d.id] = d.name;
         });
-    
-   
+
+
     // build paths
     g.append("g")
       .attr("class", "states-bundle")
@@ -42,15 +42,15 @@ $(function(){
         for (var i = 0; i < 53; i++){
           return names[d.id];
         }
-        
+
       }))
       .attr("d", path)
       .style("fill", function(d, i) { return color(d.color = d3.max(neighbors[i], function(n) { return data[n].color; }) + 1 | 0); })
       .attr("stroke", "white")
       .attr("class", "states")
       .on('click', function(){
-        $('.state_name').text("Hello");
-        }); 
+        $('.state_name').text(this.id);
+        });
 
     // add state names
      // g.append("g")
@@ -74,7 +74,7 @@ $(function(){
          })
      })
 
-    
+
 });
 
 // END MAP
@@ -83,10 +83,9 @@ $(function(){
 
 $(function(){
   $('.state_name').click(function(){
-    
+
     var stateId = $(this).text();
     var selector = "#" + stateId
     $(selector).css("fill", "cyan");
   });
 });
-
