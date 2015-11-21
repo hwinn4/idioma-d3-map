@@ -1,20 +1,15 @@
 # == Schema Information
 #
-# Table name: states
+# Table name: languages
 #
 #  id         :integer          not null, primary key
 #  name       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  num        :integer
 #
 
-class State < ActiveRecord::Base
+class Language < ActiveRecord::Base
   has_many :state_languages
-  has_many :languages, through: :state_languages
+  has_many :states, through: :state_languages
 
-  def initialize(name, num)
-    @name = name
-    @num = num
-  end
 end
