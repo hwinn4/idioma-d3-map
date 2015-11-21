@@ -93,11 +93,12 @@ $(function(){
 });
 
 function stateInfo(stateName) {
-    $.getJSON('assets/json/sample-data.json', function(data) {
-      var items = "";
-      $.each(data, function(key, val) {
-        items += "<li id='" + key + "'>" + key + ": " + val + "</li>";
-        });
-      $('.state_languages').append(items);
-    });
+    var url = ""
+    // $.getJSON('assets/json/sample-data.json', function(data) {
+    //   var items = "";
+    //   $.each(data, function(key, val) {
+    //     items += "<li id='" + key + "'>" + key + ": " + val + "</li>";
+    //     });
+    //   $('.state_languages').append(items);
+    // });
   }

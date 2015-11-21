@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# require_relative '../app/models/adapters/data_parser.rb'
+# reraquire_relative '../app/models/adapters/data_parser.rb'
 
 State.delete_all
 Language.delete_all

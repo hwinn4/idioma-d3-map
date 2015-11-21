@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'maps#index'
-  resources :neighborhoods
+  resources :states
+  resources :state_languages
   resources :maps
 
   # The priority is based upon order of creation: first created -> highest priority.
