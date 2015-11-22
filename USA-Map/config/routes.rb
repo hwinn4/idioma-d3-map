@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :states
   resources :state_languages
   resources :maps
+  get '/state_languages/data', to: 'state_languages#show', as: 'state_data'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -93,20 +93,4 @@ $(function(){
 
 });
 
-function stateInfo(stateName) {
-    var url = "/state_languages/" + stateName
-    $.ajax({
-      url: url,
-      method: "GET",
-      dataType: "JSON"
-    }).success(function(data){
-      debugger;
-    })
-    // $.getJSON('assets/json/sample-data.json', function(data) {
-    //   var items = "";
-    //   $.each(data, function(key, val) {
-    //     items += "<li id='" + key + "'>" + key + ": " + val + "</li>";
-    //     });
-    //   $('.state_languages').append(items);
-    // });
-  }
+

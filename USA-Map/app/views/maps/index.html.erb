@@ -9,4 +9,25 @@
       </div>
   </div>
   <div id="usaMap"></div>
-<!-- <div id="map"></div> -->
+
+<script>  
+function stateInfo(stateName) {
+  var slugName = stateName.toLowerCase().split(" ").join("-");
+  var url = "<%= state_data_path %>";
+    $.ajax({
+      url: url,
+      data: {'name': stateName},
+      method: "GET",
+      dataType: "JSON"
+    }).success(function(data){
+      debugger;
+    })
+    // $.getJSON('assets/json/sample-data.json', function(data) {
+    //   var items = "";
+    //   $.each(data, function(key, val) {
+    //     items += "<li id='" + key + "'>" + key + ": " + val + "</li>";
+    //     });
+    //   $('.state_languages').append(items);
+    // });
+  }
+</script>
