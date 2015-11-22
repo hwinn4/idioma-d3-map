@@ -1,28 +1,29 @@
-  .states {
-        stroke: #000;
-        fill-opacity: .7;
-    }
+.states {
+  stroke: #000;
+  fill-opacity: .7;
+}
 
-    .symbol {
-        fill: steelblue;
-        fill-opacity: .8;
-        stroke: #fff;
-    }
+.symbol {
+  fill: steelblue;
+  fill-opacity: .8;
+  stroke: #fff;
+}
 
-    #usaMap {
-      position: absolute;
-      top: 80px;
-      left: 200px;
-    }
+#usaMap {
+  position: absolute;
+  top: 80px;
+  left: 250px;
+}
 
-    .state_languages {
-      position: absolute;
-    }
-    
-    #views {
-      list-style-type: none;
-    }
-  
+#views {
+  list-style-type: none;
+}
+
+#state_data{
+  position: absolute;
+  top: 80px;
+}
+
 
    /* text {
       display: block;
