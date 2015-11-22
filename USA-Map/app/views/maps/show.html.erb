@@ -1,4 +1,27 @@
-<p id="notice"><%= notice %></p>
+<div id="info">
+      <div id="neighborhood_details" class="neighborhood_info">
+        <h2 id="name">Click on a state to learn about the languages spoken there.</h2>
+        <div id="options">
+            <%= form_tag({:url => "/state_languages/data", method: "get"}, {:id => "select_state"}) do %>
+              <%= select_tag "state", options_from_collection_for_select(State.all, :name, :name), :prompt => "Select a State" %>
+            <% end %>
+        </div>
+        <div id="language_data"></div>
+      </div>
+  </div>
+  <div id="usaMap"></div>
 
-<%= link_to 'Edit', edit_map_path(@map) %> |
-<%= link_to 'Back', maps_path %>
+<script>
+  function stateInfo(stateName) {
+  var url = "<%= state_data_path %>";
+    $.ajax({
+      url: url,
+      data: {'name': stateName},
+      method: "GET",
+      dataType: "JSON"
+    }).success(function(data){
+      $('#language_data').html(data.text);
+    })
+  }
+
+</script>

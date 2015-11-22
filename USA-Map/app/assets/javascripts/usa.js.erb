@@ -91,6 +91,10 @@ $(function(){
     $(selector).css("fill", "cyan");
   });
 
+  $('#select_state').change(function(){
+    var state = $('#select_state option:selected').text();
+    stateInfo(state);
+    })
 });
 
 
