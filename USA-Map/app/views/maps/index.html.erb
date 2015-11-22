@@ -2,17 +2,14 @@
       <div id="neighborhood_details" class="neighborhood_info">
         <h2 id="name">Click on a state to learn about the languages spoken there.</h2>
         <div id="options">
-            <h3 class="state_name">Texas</h3>
-            <div class="state_languages"></div>
-            <h3>Spanish</h3>
+            <div id="language_data"></div>
         </div>
       </div>
   </div>
   <div id="usaMap"></div>
 
-<script>  
-function stateInfo(stateName) {
-  var slugName = stateName.toLowerCase().split(" ").join("-");
+<script>
+  function stateInfo(stateName) {
   var url = "<%= state_data_path %>";
     $.ajax({
       url: url,
@@ -20,14 +17,7 @@ function stateInfo(stateName) {
       method: "GET",
       dataType: "JSON"
     }).success(function(data){
-      $('#neighborhood_details').append(data.text);
+      $('#language_data').html(data.text);
     })
-    // $.getJSON('assets/json/sample-data.json', function(data) {
-    //   var items = "";
-    //   $.each(data, function(key, val) {
-    //     items += "<li id='" + key + "'>" + key + ": " + val + "</li>";
-    //     });
-    //   $('.state_languages').append(items);
-    // });
   }
 </script>
