@@ -16,7 +16,10 @@
     .state_languages {
       position: absolute;
     }
-
+    
+    #views {
+      list-style-type: none;
+    }
   
 
    /* text {
