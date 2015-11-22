@@ -1,24 +1,12 @@
 <div id="info">
       <div id="neighborhood_details" class="neighborhood_info">
-        <h2 id="name">Click on a state to learn about the languages spoken there.</h2>
-        <div id="options">
-            <%= form_tag({:url => "/state_languages/data", method: "get"}, {:id => "select_state"}) do %>
-              <%= select_tag "state", options_from_collection_for_select(State.all, :name, :name), :prompt => "Select a State" %>
-            <% end %>
-        </div>
         <div id="language_data"></div>
-        <div id="view_choices">
-          <h2>Choose a view for your map:</h2>
-          <ul id="views">
-            <li class="view_option" id="0"><button type="button">First Language</button></li>
-            <li class="view_option" id="1"><button type="button">Second Language</button></li>
-            <li id="reset"><button type="button">Reset Map</button></li>
-          </ul>
-        </div>
         <div id="display-key"></div>
       </div>
   </div>
-  <div id="usaMap"></div>
+  
+    <div id="usaMap"></div>
+ 
 
 <script>
   function displayStateInfo(stateName) {
