@@ -7,6 +7,13 @@
             <% end %>
         </div>
         <div id="language_data"></div>
+        <div id="view_choices">
+          <h2>Choose a view for your map:</h2>
+          <ul>
+            <li class="view_option" id="0">First Language</li>
+            <li class="view_option" id="1">Second Language</li>
+          </ul>
+        </div>
       </div>
   </div>
   <div id="usaMap"></div>
@@ -21,6 +28,26 @@
       dataType: "JSON"
     }).success(function(data){
       $('#language_data').html(data.text);
+    })
+  };
+
+  function colorCodeMap(id){
+    var url = "<%= visualize_path %>"
+    $.ajax({
+      url: url,
+      data: {'language_num': id},
+      method: "GET",
+      dataType: "JSON"
+    }).success(function(data){
+      var state_names = data["state_names"];
+      var all_state_data = data["data"];
+      for (var i=0; i < state_names.length; i++){
+        var state_name = state_names[i];
+        var state_data = all_state_data[state_name];
+        var selector = "#" + state_name;
+        console.log(state_name, state_data.color, state_data.language)
+        $(selector).css("fill", state_data.color);
+      }
     })
   }
 

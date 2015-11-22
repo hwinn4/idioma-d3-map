@@ -27,6 +27,7 @@ $(function(){
         tsv.forEach(function(d,i){
           // uses the names hash from the tsv file
           names[d.id] = d.name;
+          debugger;
         });
 
 
@@ -91,14 +92,19 @@ $(function(){
     $(selector).css("fill", "cyan");
   });
 
-  $('#select_state').on ('change', function(){
+  $('#select_state').on('change', function(){
     var state = $('#select_state option:selected').text();
     stateInfo(state);
     var selector = "path[id='" + state + "']"
     // need to fix this part using aj's code
     $(selector).css('fill','cyan')
     
-    })
+    });
+
+  $('.view_option').click(function(){
+    var id = this.id;
+    colorCodeMap(id);
+  })
 });
 
 
