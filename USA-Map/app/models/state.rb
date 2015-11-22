@@ -12,6 +12,9 @@ class State < ActiveRecord::Base
   has_many :state_languages
   has_many :languages, through: :state_languages
 
+
+  
+
   def self.state_language_hash(num)
     num = num.to_i
     data = State.all.each_with_object({}) do |state, data_hash|

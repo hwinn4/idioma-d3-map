@@ -1,4 +1,9 @@
+var createSlug = function(stateName){
+  return stateName.toLowerCase().split(" ").join("-");
+};
+
 $(function(){
+
 
      var width = 960,
         height = 500;
@@ -26,8 +31,8 @@ $(function(){
         var names = {};
         tsv.forEach(function(d,i){
           // uses the names hash from the tsv file
-          names[d.id] = d.name;
-          debugger;
+          var sluggedName = createSlug(d.name);
+          names[d.id] = sluggedName;
         });
 
 
@@ -52,7 +57,7 @@ $(function(){
       .on('click', function(){
         // $('.state_name').text(this.id);
         // debugger;
-        stateInfo(this.id);
+        displayStateInfo(this.id);
         $(this).css("fill", "cyan");
         });
 
@@ -94,8 +99,9 @@ $(function(){
 
   $('#select_state').on('change', function(){
     var state = $('#select_state option:selected').text();
-    stateInfo(state);
-    var selector = "path[id='" + state + "']"
+    displayStateInfo(state);
+    var sluggedName = createSlug(state);
+    var selector = "path[id='" + sluggedName + "']"
     // need to fix this part using aj's code
     $(selector).css('fill','cyan')
     
@@ -104,8 +110,12 @@ $(function(){
   $('.view_option').click(function(){
     var id = this.id;
     colorCodeMap(id);
-  })
+  });
+
+
+
 });
+
 
 
 
