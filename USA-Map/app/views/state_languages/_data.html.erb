@@ -1,11 +1,6 @@
 <div class="state_data">
-  
+  <h3><%= state.name %></h3>
+  <p><%= language_info.first.language.name %>: <%= language_info.first.num_speakers%></p>
+  <p><%= language_info.last.language.name %>: <%= language_info.last.num_speakers%></p>
 </div>
 
-<!-- <div class="like">
-  <%= link_to like_path(id: picture.id), remote: true, method: :post do%>
-    <div class="like-btn text-center" picture_id="<%= picture.id %>">
-      <span class="<%= picture.heart_class(current_user) %>"></span>
-    </div>
-  <% end %>
-  <div class="likes-message"><%= picture.likes_message(current_user) %></div> -->

@@ -20,7 +20,7 @@ function stateInfo(stateName) {
       method: "GET",
       dataType: "JSON"
     }).success(function(data){
-      debugger;
+      $('#neighborhood_details').append(data.text);
     })
     // $.getJSON('assets/json/sample-data.json', function(data) {
     //   var items = "";
