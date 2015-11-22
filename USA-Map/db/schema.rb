@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151121010621) do
+ActiveRecord::Schema.define(version: 20151122020822) do
 
   create_table "languages", force: :cascade do |t|
     t.string   "name"
@@ -27,14 +27,13 @@ ActiveRecord::Schema.define(version: 20151121010621) do
   create_table "state_languages", force: :cascade do |t|
     t.string   "language_id"
     t.string   "state_id"
-    t.integer  "num_speakers"
+    t.string   "num_speakers"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
 
   create_table "states", force: :cascade do |t|
     t.string   "name"
-    t.integer  "num"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

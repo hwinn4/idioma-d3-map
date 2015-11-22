@@ -5,7 +5,7 @@
 #  id           :integer          not null, primary key
 #  language_id  :string
 #  state_id     :string
-#  num_speakers :integer
+#  num_speakers :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #

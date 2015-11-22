@@ -50,6 +50,7 @@ $(function(){
       .attr("class", "states")
       .on('click', function(){
         $('.state_name').text(this.id);
+        // debugger;
         stateInfo(this.id);
         $(this).css("fill", "cyan");
         });
@@ -92,12 +93,4 @@ $(function(){
 
 });
 
-function stateInfo(stateName) {
-    $.getJSON('assets/json/sample-data.json', function(data) {
-      var items = "";
-      $.each(data, function(key, val) {
-        items += "<li id='" + key + "'>" + key + ": " + val + "</li>";
-        });
-      $('.state_languages').append(items);
-    });
-  }
+
