@@ -17,6 +17,10 @@
       position: absolute;
     }
 
+    .cyan {
+      fill:cyan;
+    }
+
    /* text {
       display: block;
     }
