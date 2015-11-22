@@ -22,18 +22,19 @@
     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
       States <span class="caret"></span>
     </a>
-    <ul class="dropdown-menu">
-      <li class="view_option" id="0"><a href="#dropdown1" data-toggle="tab">Dominant Non-English Language</a></li>
-      <li class="divider"></li>
-      <li class="view_option" id="1"><a href="#dropdown2" data-toggle="tab">Second-Ranking Non-English Language</a></li>
+    <ul class="dropdown-menu" id="select_state">
+      <% State.all.each do |state| %>
+        <li class="state-choice"><a href="#" data-toggle="tab"><%= state.name %></a></li>
+        <li class="divider"></li>
+      <% end %>
     </ul>
   </li>
   <!-- End State Options -->
 </ul>
 
 
-<div id="options">
+<!-- <div id="options">
   <%= form_tag({:url => "/state_languages/data", method: "get"}, {:id => "select_state"}) do %>
     <%= select_tag "state", options_from_collection_for_select(State.all, :name, :name), :prompt => "Select a State" %>
   <% end %>
-</div>
+</div> -->

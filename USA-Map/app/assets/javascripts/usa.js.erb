@@ -92,14 +92,9 @@ $(function(){
 // LISTENERS
 
 $(function(){
-  // $('.state_name').click(function(){
-  //   var stateId = $(this).text();
-  //   var selector = "#" + stateId
-  //   $(selector).css("fill", "cyan");
-  // });
 
-  $('#select_state').on('change', function(){
-    var state = $('#select_state option:selected').text();
+ $('.state-choice').on('click', function(){
+    var state = $(this).text();
     displayStateInfo(state);
     var sluggedName = createSlug(state);
     var selector = "path[id='" + sluggedName + "']"
@@ -108,6 +103,7 @@ $(function(){
     
     });
 
+  
   $('.view_option').click(function(){
     var id = this.id;
     colorCodeMap(id);
