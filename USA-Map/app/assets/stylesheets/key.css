@@ -1,0 +1,28 @@
+#key {
+  width: 200px;
+}
+
+#key-row{
+  margin-bottom: 5px;
+}
+
+#color {
+  width: 75px;
+  float: left;
+}
+
+
+#languages{
+  width: 100px;
+  float: left;
+}
+
+.color-swatch {
+  width: 75px;
+  height: 15px;
+  float: left;
+}
+
+.language-name{
+  float: left;
+}

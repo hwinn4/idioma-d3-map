@@ -10,10 +10,12 @@
         <div id="view_choices">
           <h2>Choose a view for your map:</h2>
           <ul>
-            <li class="view_option" id="0">First Language</li>
-            <li class="view_option" id="1">Second Language</li>
+            <li class="view_option" id="0"><button type="button">First Language</button></li>
+            <li class="view_option" id="1"><button type="button">Second Language</button></li>
+            <li id="reset"><button type="button">Reset Map</button></li>
           </ul>
         </div>
+        <div id="display-key"></div>
       </div>
   </div>
   <div id="usaMap"></div>
@@ -49,6 +51,7 @@
         console.log(sluggedName, state_data.color, state_data.language)
         $(selector).css("fill", state_data.color);
       }
+      $("#display-key").html(data['text']);
     })
   }
 

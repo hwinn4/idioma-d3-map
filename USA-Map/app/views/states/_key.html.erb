@@ -1,0 +1,12 @@
+<div id="key">
+  <div id="key-row">
+    <div id="color">
+      <% lang_colors.each do |language, color| %>
+        <div id="<%= language %>" class="color-swatch" style="background:<%= color %>"></div>
+    </div>
+    <div id="languages">
+      <div class="language-name"><%= language %></div>
+    </div>
+    <% end %>
+  </div>
+</div>

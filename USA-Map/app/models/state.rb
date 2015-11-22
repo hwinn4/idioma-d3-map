@@ -13,7 +13,7 @@ class State < ActiveRecord::Base
   has_many :languages, through: :state_languages
 
 
-  
+
 
   def self.state_language_hash(num)
     num = num.to_i
@@ -35,13 +35,13 @@ class State < ActiveRecord::Base
       "Navajo" =>  "darkcyan", 
       "Tagalog" => "darkolivegreen", 
       "Polish" => "darkseagreen",
-      "Chinese" => "darkslategray",
-      "French Creole" => "goldenrod", 
+      "Chinese" => "cornflowerblue",
+      "French Creole" => "indigo", 
       "Korean" => "lawngreen", 
       "Japanese" => "lightsteelblue", 
       "French" => "maroon", 
       "Portuguese" => "peru", 
-      "Arabic" => "silver", 
+      "Arabic" => "darkorange", 
       "Hmong" => "tan", 
       "Vietnamese" => "yellowgreen", 
       "Dakota" => "hotpink"
