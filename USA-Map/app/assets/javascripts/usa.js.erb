@@ -59,7 +59,8 @@ $(function(){
         // $('.state_name').text(this.id);
         // debugger;
         displayStateInfo(this.id);
-        $(this).css("fill", "white");
+        $('path').css('fill', 'gray');
+        $(this).css("fill", "turquoise");
         });
 
     // add state names
@@ -99,27 +100,20 @@ $(function(){
     var sluggedName = createSlug(state);
     var selector = "path[id='" + sluggedName + "']"
     // need to fix this part using aj's code
-    $(selector).css('fill','white')
-    
     });
 
-  
+
   $('.view_option').click(function(){
     var id = this.id;
     colorCodeMap(id);
   });
 
-  $('#reset').click(function(){
-    $('path').css("fill", "gray");
-    $("#display-key").empty();
-    $("#state_data").empty();
-  })
+  // $('#reset').click(function(){
+  //   $('path').css("fill", "gray");
+  //   $("#display-key").empty();
+  //   $("#state_data").empty();
+  // })
 
 
 
 });
-
-
-
-
-
