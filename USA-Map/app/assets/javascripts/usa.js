@@ -59,6 +59,7 @@ $(function(){
         // $('.state_name').text(this.id);
         // debugger;
         displayStateInfo(this.id);
+        $('#key').hide();
         $('path').css('fill', 'gray');
         $(this).css("fill", "turquoise");
         });
@@ -108,11 +109,11 @@ $(function(){
     colorCodeMap(id);
   });
 
-  // $('#reset').click(function(){
-  //   $('path').css("fill", "gray");
-  //   $("#display-key").empty();
-  //   $("#state_data").empty();
-  // })
+  $('body').on('click',function(){
+    $('path').css("fill", "gray");
+    $("#display-key").empty();
+    $("#state_data").empty();
+  })
 
   $('.dropdown-toggle').dropdown();
 

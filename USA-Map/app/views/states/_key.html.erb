@@ -1,17 +1,14 @@
 <div id="key">
 
-
-  <% lang_colors.each do |language, color| %>
-  <div class="key-row">
-    <div class="color">
-        <div id="<%= language %>" class="color-swatch" style="background:<%= color %>"></div>
+  <% lang_colors.each_with_index do |(language, color), index| %>
+    <div class="key-row">
+      <div class="color">
+          <div id="<%= language %>" class="color-swatch" style="background:<%= color %>"></div>
+      </div>
+      <div class="language-name"><%= language %></div>
     </div>
-
-   
-    <div class="language-name"><%= language %></div>
-   
-  </div>
   <% end %>
 
+  <a href="#" id="reset" class="btn btn-primary btn-xs">Reset Map</a>
 
 </div>

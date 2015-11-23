@@ -26,13 +26,10 @@
   float: left;
 }
 
-.language-name{
-   width: 100px;
-  float: left;
-}
-
 .language-name {
-  padding-left: 2px;
+  width: 100px;
+  float: left;
+  padding-left: 6px;
   font-family: 'News Cycle';
   font-style: normal;
   font-weight: 200;

@@ -72,3 +72,8 @@ a.dropdown-toggle {
 #state_data {
   margin-top: 50px;
 }
+
+#reset {
+  background-color: #FFFFFF;
+  color: #000000;
+}
