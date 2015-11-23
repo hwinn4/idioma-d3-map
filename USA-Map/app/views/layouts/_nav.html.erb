@@ -1,35 +1,41 @@
-<ul class="nav nav-pills">
-  <li class="active"><a href="#home">Language Map</a></li>
-  <li id="reset"><a href="#profile">Reset Map</a></li>
-  
-  <!-- Start View Options -->
-  <li class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-      Visualize <span class="caret"></span>
-    </a>
-    <ul class="dropdown-menu">
-      <li class="view_option" id="0"><a href="#dropdown1" data-toggle="tab">Dominant Non-English Language</a></li>
-      <li class="divider"></li>
-      <li class="view_option" id="1"><a href="#dropdown2" data-toggle="tab">Second-Ranking Non-English Language</a></li>
-    </ul>
-  </li>
-  <!-- End View Options -->
-
-
-  <!-- Start State Options -->
-  <li class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-      States <span class="caret"></span>
-    </a>
-    <ul class="dropdown-menu" id="select_state">
-      <% State.all.each do |state| %>
-        <li class="state-choice"><a href="#" data-toggle="tab"><%= state.name %></a></li>
-        <li class="divider"></li>
-      <% end %>
-    </ul>
-  </li>
-  <!-- End State Options -->
+<ul class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">LanguageMap</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+        <ul class="nav navbar-nav">
+          <li id="reset" class="active"><a href="#">Reset Map<span class="sr-only">(current)</span></a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+              Visualize <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li class="view_option" id="0"><a href="#">Most Commonly Spoken Language Other than English</a></li>
+              <li class="divider"></li>
+              <li class="view_option" id="1"><a href="#">Most Commonly Spoken Language Other than English & Spanish</a></li>
+            </ul>
+          </li> 
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" href="#">
+              States <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu" id="select_state">
+              <% State.all.each do |state| %>
+                <li class="state-choice"><a href="#"><%= state.name %></a></li>
+                <li class="divider"></li>
+              <% end %>
+            </ul>
+          </li>
+        </ul>
+    </div>
+  </div>
 </ul>
-
 
 
