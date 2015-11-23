@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   root 'maps#show'
   resources :maps
   resources :states
