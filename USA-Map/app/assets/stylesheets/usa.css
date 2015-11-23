@@ -18,14 +18,14 @@ a.navbar-brand {
   font-weight: 600;
   font-size: 30px;
   src: local('News Cycle'), local('NewsCycle'), url(https://fonts.gstatic.com/s/newscycle/v13/9Xe8dq6pQDsPyVH2D3tMQsDdSZkkecOE1hvV7ZHvhyU.ttf) format('truetype');
-  margin-bottom: 7px;
+  margin-bottom: 8px;
 }
 a.dropdown-toggle {
   position: fixed;
   font-family: 'News Cycle';
   font-style: normal;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 16px;
   src: local('News Cycle'), local('NewsCycle'), url(https://fonts.gstatic.com/s/newscycle/v13/9Xe8dq6pQDsPyVH2D3tMQsDdSZkkecOE1hvV7ZHvhyU.ttf) format('truetype');
 }
 
