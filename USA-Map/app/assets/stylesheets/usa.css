@@ -11,7 +11,7 @@
 
 #usaMap {
   position: absolute;
-  top: 80px;
+  top: 200px;
   left: 250px;
 }
 
@@ -21,7 +21,7 @@
 
 #state_data{
   position: absolute;
-  top: 80px;
+  top: 200px;
 }
 
 .scrollable-menu {
