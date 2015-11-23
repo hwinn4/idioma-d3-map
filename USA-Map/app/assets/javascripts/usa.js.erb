@@ -114,6 +114,13 @@ $(function(){
   //   $("#state_data").empty();
   // })
 
+  $('.dropdown-toggle').dropdown();
+
+  // Fix input element click problem
+  $('.dropdown input, .dropdown label').click(function(e) {
+    e.stopPropagation();
+  });
+
 
 
 });
