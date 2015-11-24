@@ -59,6 +59,7 @@ $(function(){
         // $('.state_name').text(this.id);
         // debugger;
         displayStateInfo(this.id);
+        $('#key').hide();
         $('path').css('fill', 'gray');
         $(this).css("fill", "turquoise");
         });
