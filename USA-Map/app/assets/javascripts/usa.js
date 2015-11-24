@@ -61,7 +61,9 @@ $(function(){
         displayStateInfo(this.id);
         $('#key').hide();
         $('path').css('fill', 'gray');
+        console.log("gray");
         $(this).css("fill", "turquoise");
+        console.log("teal");
         });
 
     // add state names
@@ -109,7 +111,7 @@ $(function(){
     colorCodeMap(id);
   });
 
-  $('body').on('click',function(){
+  $('body').on('click','#reset', function(){
     $('path').css("fill", "gray");
     $("#display-key").empty();
     $("#state_data").empty();
