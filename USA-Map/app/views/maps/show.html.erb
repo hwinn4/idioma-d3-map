@@ -1,6 +1,11 @@
 <div id="info">
       <div id="neighborhood_details" class="neighborhood_info">
-        <div id="language_data"></div>
+        <div id="language_data">
+          <div class="col-md-2 col-xs-offset-1" id="about">
+            <%= render "layouts/about" %>
+          </div>
+          <div id="state_data"></div>
+        </div>
         <div class="col-md-2 col-xs-offset-1" id="display-key"></div>
       </div>
   </div>
@@ -18,7 +23,8 @@
       method: "GET",
       dataType: "JSON"
     }).success(function(data){
-      $('#language_data').html(data.text);
+      $('#about').hide();
+      $('#state_data').html(data.text);
     })
   };
 
@@ -37,16 +43,13 @@
         var state_data = all_state_data[state_name];
         var sluggedName = createSlug(state_name);
         var selector = "#" + sluggedName;
-        console.log(sluggedName, state_data.color, state_data.language)
         $(selector).css("fill", state_data.color);
       }
       $("#display-key").html(data['text']);
-      $('#state_data').hide();
+      $('#state_data').html("");
     })
   }
 
 </script>
 
-<!-- <div id="attribution">
-  <p>Data Source: <a href="http://www.census.gov/data/tables/2013/demo/2009-2013-lang-tables.html" target="_blank">2009-2013 American Community Survey</a></p>
-</div> -->
+

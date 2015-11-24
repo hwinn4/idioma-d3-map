@@ -59,11 +59,8 @@ $(function(){
         // $('.state_name').text(this.id);
         // debugger;
         displayStateInfo(this.id);
-        $('#key').hide();
         $('path').css('fill', 'gray');
-        console.log("gray");
         $(this).css("fill", "turquoise");
-        console.log("teal");
         });
 
     // add state names
@@ -98,11 +95,12 @@ $(function(){
 $(function(){
 
  $('.state-choice').on('click', function(){
+  console.log("click");
     var state = $(this).text();
     displayStateInfo(state);
-    var sluggedName = createSlug(state);
-    var selector = "path[id='" + sluggedName + "']"
-    // need to fix this part using aj's code
+    $('path').css('fill', 'gray');
+    var selector = "#" + createSlug(state);
+    $(selector).css("fill", "turquoise");
     });
 
 
@@ -115,6 +113,7 @@ $(function(){
     $('path').css("fill", "gray");
     $("#display-key").empty();
     $("#state_data").empty();
+    $('#about').show();
   })
 
   $('.dropdown-toggle').dropdown();

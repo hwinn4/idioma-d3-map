@@ -49,7 +49,7 @@ a.dropdown-toggle {
 
 #usaMap {
   position: absolute;
-  top: 220px;
+  top: 150px;
   left: 250px;
   height: 500px;
 }
@@ -59,8 +59,7 @@ a.dropdown-toggle {
 }
 
 #state_data{
-  position: absolute;
-  top: 200px;
+   margin-top: 50px;
 }
 
 .scrollable-menu {
@@ -74,6 +73,15 @@ a.dropdown-toggle {
 }
 
 #reset {
+  margin-top: 20px;
   background-color: #FFFFFF;
   color: #000000;
+}
+
+#about{
+  margin-top: 50px;
+}
+
+p.about {
+line-height: 1.5;
 }
